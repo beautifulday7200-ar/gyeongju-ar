@@ -607,47 +607,27 @@
 
         <!-- 첨성대 (Hiro 마커) -->
         <a-marker preset="hiro" id="marker-cheomseongdae" emitevents="true">
-            <a-entity id="model-cheomseongdae">
-                <!-- 본체 -->
-                <a-cylinder 
-                    color="#8B7355" 
-                    height="1.5" 
-                    radius="0.35"
-                    position="0 0.75 0"
-                    shadow="cast: true"
-                    animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
-                    <!-- 창문들 -->
-                    <a-box color="#2C1810" width="0.2" height="0.2" depth="0.05" position="0.35 0.4 0"></a-box>
-                    <a-box color="#2C1810" width="0.2" height="0.2" depth="0.05" position="-0.35 0.4 0"></a-box>
-                    <a-box color="#2C1810" width="0.2" height="0.2" depth="0.05" position="0.35 0 0"></a-box>
-                    <a-box color="#2C1810" width="0.2" height="0.2" depth="0.05" position="-0.35 0 0"></a-box>
-                    <a-box color="#2C1810" width="0.2" height="0.2" depth="0.05" position="0.35 -0.4 0"></a-box>
-                    <a-box color="#2C1810" width="0.2" height="0.2" depth="0.05" position="-0.35 -0.4 0"></a-box>
-                </a-cylinder>
-                
-                <!-- 상단 장식 -->
-                <a-sphere 
-                    color="#FFD700" 
-                    radius="0.12"
-                    position="0 1.65 0"
-                    animation="property: position; to: 0 1.75 0; dir: alternate; loop: true; dur: 1500; easing: easeInOutQuad">
-                </a-sphere>
-                
-                <!-- 빛 효과 -->
-                <a-light type="point" color="#FFD700" intensity="0.5" position="0 1.7 0"></a-light>
-                
-                <!-- 텍스트 -->
-                <a-text 
-                    value="첨성대" 
-                    color="#FFD700" 
-                    align="center" 
-                    position="0 2 0"
-                    scale="0.8 0.8 0.8"
-                    shader="msdf"
-                    font="https://cdn.aframe.io/examples/ui/Viga-Regular.json">
-                </a-text>
-            </a-entity>
-        </a-marker>
+    <a-entity id="model-cheomseongdae">
+        <a-entity
+            gltf-model="models/cheomseongdae.glb"
+            scale="0.5 0.5 0.5"
+            position="0 0 0"
+            rotation="0 0 0"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+        </a-entity>
+        
+        <!-- 텍스트 라벨 -->
+        <a-text 
+            value="첨성대" 
+            color="#FFD700" 
+            align="center" 
+            position="0 2 0"
+            scale="0.8 0.8 0.8"
+            shader="msdf"
+            font="https://cdn.aframe.io/examples/ui/Viga-Regular.json">
+        </a-text>
+    </a-entity>
+</a-marker>
 
         <!-- 동궁과 월지 (Kanji 마커) -->
         <a-marker preset="kanji" id="marker-donggung" emitevents="true">
