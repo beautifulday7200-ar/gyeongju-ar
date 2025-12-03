@@ -606,25 +606,21 @@
         <a-entity camera id="ar-camera"></a-entity>
 
         <!-- 첨성대 (Hiro 마커) -->
-        <a-marker preset="hiro" id="marker-cheomseongdae" emitevents="true">
+<a-marker preset="hiro" id="marker-cheomseongdae" emitevents="true">
     <a-entity id="model-cheomseongdae">
         <a-entity
             gltf-model="models/cheomseongdae.glb"
             scale="0.5 0.5 0.5"
             position="0 0 0"
-            rotation="0 0 0"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
         </a-entity>
         
-        <!-- 텍스트 라벨 -->
         <a-text 
             value="첨성대" 
             color="#FFD700" 
             align="center" 
             position="0 2 0"
-            scale="0.8 0.8 0.8"
-            shader="msdf"
-            font="https://cdn.aframe.io/examples/ui/Viga-Regular.json">
+            scale="0.8 0.8 0.8">
         </a-text>
     </a-entity>
 </a-marker>
