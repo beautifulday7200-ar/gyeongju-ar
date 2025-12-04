@@ -609,17 +609,18 @@
 <a-marker preset="hiro" id="marker-cheomseongdae" emitevents="true">
     <a-entity id="model-cheomseongdae">
         
-        <!-- GLB 모델 -->
+        <!-- GLB 모델 - 파일 이름 수정 -->
         <a-gltf-model 
             src="https://github.com/beautifulday7200-ar/gyeongju-ar/releases/download/v1.0/cheomseongdae.glb?raw=true"
             position="0 0.5 0"
-            scale="0.5 0.5 0.5"
+            scale="0.01 0.01 0.01"
             rotation="0 0 0"
-            shadow="cast: true"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
         </a-gltf-model>
         
-        <!-- 텍스트 -->
+        <!-- 빨간 박스 (확인용) -->
+        <a-box color="red" position="0 1 0" scale="0.2 0.2 0.2"></a-box>
+        
         <a-text 
             value="첨성대" 
             color="#FFD700" 
