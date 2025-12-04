@@ -609,31 +609,12 @@
 <a-marker preset="hiro" id="marker-cheomseongdae" emitevents="true">
     <a-entity id="model-cheomseongdae">
         
-        <!-- GLB 모델 -->
-   <a-gltf-model 
-    src="./models/cheomseongdae-v2.glb"
-    position="0 0 0"
-    scale="0.01 0.01 0.01">
-</a-gltf-model>
-        
-        <!-- 상단 장식 빛 -->
-        <a-sphere 
-            color="#FFD700" 
-            radius="0.12"
-            position="0 1.65 0"
-            animation="property: position; to: 0 1.75 0; dir: alternate; loop: true; dur: 1500">
-        </a-sphere>
-        
-        <a-light type="point" color="#FFD700" intensity="0.5" position="0 1.7 0"></a-light>
-        
-        <!-- 텍스트 -->
-        <a-text 
-            value="첨성대" 
-            color="#FFD700" 
-            align="center" 
-            position="0 2 0"
-            scale="0.8 0.8 0.8">
-        </a-text>
+        <!-- 테스트: 오리 모델 -->
+        <a-gltf-model 
+            src="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb"
+            position="0 0 0"
+            scale="0.01 0.01 0.01">
+        </a-gltf-model>
         
     </a-entity>
 </a-marker>
