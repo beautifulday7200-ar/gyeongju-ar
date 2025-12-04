@@ -611,12 +611,23 @@
         
         <!-- GLB 모델 -->
         <a-gltf-model 
-            src="https://github.com/beautifulday7200-ar/gyeongju-ar/releases/download/v1.0/cheomseongdae.glb?raw=true"
-            position="0 0 0"
+            src="https://github.com/beautifulday7200-ar/gyeongju-ar/releases/download/v1.0/scene.glb?raw=true"
+            position="0 0.5 0"
             scale="0.5 0.5 0.5"
             rotation="0 0 0"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
+            shadow="cast: true"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 20000; easing: linear">
         </a-gltf-model>
+        
+        <!-- 텍스트 -->
+        <a-text 
+            value="첨성대" 
+            color="#FFD700" 
+            align="center" 
+            position="0 2 0"
+            scale="0.8 0.8 0.8">
+        </a-text>
+        
     </a-entity>
 </a-marker>
 
