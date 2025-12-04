@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR 테스트</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
+    <style>
+        body { margin: 0; font-family: sans-serif; }
+        #status {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 999;
+            font-size: 16px;
+        }
+        #start-btn {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <button id="start-btn" onclick="startAR()">🚀 AR 시작</button>
+
+    <div id="status" style="display: none;">
+        <div id="marker-status">● 마커 인식 중...</div>
+        <div style="margin-top: 10px; font-size: 12px;">
+            카메라로 Hiro 마커를 비춰주세요
+        </div>
+    </div>
+
+    <a-scene
+        id="scene"
+        embedded
+        arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+        vr-mode-ui="enabled: false"
+        renderer="logarithmicDepthBuffer: true; precision: medium;"
+        style="display: none;">
+        
+        <a-entity camera></a-entity>
+
+        <a-marker preset="hiro" id="hiro-marker">
+            <!-- 큰 빨간 박스 -->
+            <a-box 
+                color="red" 
+                width="1" 
+                height="1" 
+                depth="1"
+                position="0 0.5 0"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
+            </a-box>
+            
+            <!-- 텍스트 -->
+            <a-text 
+                value="성공!" 
+                color="yellow" 
+                align="center" 
+                position="0 1.8 0"
+                scale="2 2 2">
+            </a-text>
+        </a-marker>
+
+        <a-light type="ambient" intensity="0.8"></a-light>
+        <a-light type="directional" intensity="0.5" position="-1 1 1"></a-light>
+    </a-scene>
+
+    <script>
+        function startAR() {
+            document.getElementById('start-btn').style.display = 'none';
+            document.getElementById('scene').style.display = 'block';
+            document.getElementById('status').style.display = 'block';
+        }
+
+        window.addEventListener('load', function() {
+            const marker = document.getElementById('hiro-marker');
+            const statusText = document.getElementById('marker-status');
+            
+            marker.addEventListener('markerFound', function() {
+                console.log('마커 인식됨!');
+                statusText.innerHTML = '✅ 마커 인식 성공!';
+                statusText.style.color = '#44ff44';
+            });
+            
+            marker.addEventListener('markerLost', function() {
+                console.log('마커 놓침');
+                statusText.innerHTML = '● 마커 인식 중...';
+                statusText.style.color = 'white';
+            });
+        });
+    </script>
+</body>
+</html>
